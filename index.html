@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Weather Application(real)</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="header">
+      <div class="theme-switch" id="theme-switch">
+        <label class="switch" id="switch">
+          <input class="toggle-mode" type="checkbox" id="toggle-mode" />
+          <span class="slider"></span>
+        </label>
+        <span class="themeText" id="themeText">Light Mode</span>
+      </div>
+      <div class="search-container" id="search-container">
+        <svg class="search-icon" id="search-icon" width="40" height="46" viewBox="0 0 40 46" fill="none"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect width="40" height="46" fill="url(#pattern0_9_372)" />
+          <defs>
+            <pattern id="pattern0_9_372" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_9_372" transform="matrix(0.0212766 0 0 0.0185014 0 -0.00878816)" />
+            </pattern>
+            <image id="image0_9_372" width="47" height="55"
+              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAA3CAYAAACcohNaAAAAAXNSR0IArs4c6QAABTlJREFUaEPVWT1s20YUvkfJlpClzmB0rAN0yVQZ1dAurT0YBU+QE8OApxRxh6JjHHTo2HTrFhno2EFBOxawE1mkAbtIurRI0KDylDHOVHRqDRgxacp85SNIQTrx7kjJsiQChgGRfPzed+/vvgM25GXb9oLv+7cMwygh4kJkrgQAc4j4H2OsRb8BwLHv+y3DMB6bpnk85GfD12EQIwQYAO4FYG4DQAw4tSlEPA6c3UXE7WEcyQSeQDPGvmWMbaZGqn+wHpD43SBOpAK/s7MzVywW7wU4HuixZH+CwisIs5rjONtra2sUaqkuLXgCXigUngJAKZXFIR5CxJbrustpHVCCbzablHgEfE6D6ShI1vrFxUWYnO12u0UAyPF8Ph86ncvlyBaF2wcqW7QKiLhcqVRCW6pLCt627U1EfKgAfoKID1zXradlioBEK7kJABSC7ySBi8LovmmalA/SKxG8hvETxhjFZy0LaBFBlEdbjDH663MizQr0gY+YeS1h/MT3/aU0S6pb8vg+EWUYxjOZA67r3pCR1ANek5xHjuMsDcO2zKFoFciBvnxQJXEPeNu2KQ6pjovXkWmaI602KgeiPtBXpjvgowb0OgH4G8dxSqNgXJIHNDr05ECUwItiI+uAtyyrDgB3BYOXHuO6XJDlACI+4pz3dPYQvIJ1atsj6aoqJxThe6Ob/RC8ZVk1GrRE1h3HWbiKcMkQPtuccyqt4RWDp9LYMx0i4n3OeU23zKO6b1nWFgA87LZPlYdzvtgBLwuZYEi6Pg7WY2BR9fk3gZxO6ECSh4yxkZfGNCtm2zbNNz21vzsiCHxflRl3yMSOSUKnU3UI/LNgcvy0m4l2u71crVap4431ajQaS/l8/qkQ979xzpfChJ1q8LZto0jvuJNVlbTUbTnn10Pmk8CbpqndYV1VPKnwTTR4Sbk8MU0z3NlNd8xPe8LuMsZuCeVorKNBljqvnSGuKjnF71iW9ZcoufR02KmebcjbQOag3ct7kxQ6aWYu6TxPzUC1cx9lKMkUDBJm++b5qd5JEYuS6TK19HZZKyETvKR72CjuaSdF83Pfzv2qwkcheJFKV5KqB5EDibpNVvV2kFXQCF6JQkCfYlYsFjMrV4OA7X5nUKUuUassFot9wg99LI34mdURnairUjCkKrFK/BzkFEN0Kj5tCQihDp+k/2sFL6U+T1K2SkMnff78/PxRFpWBQM/Ozt4lfb4bdGAr9C/4nf5Rgm4NpM/HLKnkZ6Ebt+hkBADC0wzXdY/ik5FCoRDu/hExPBlJczzked6Xq6urP+pCULtj0qi3OvvK+8R2xHTPc4j4z9nZ2eL6+vrfKgNa8PSy7hRjGA9kDjDGXs7Pz39cLpc9mf1U4OOXaYygOE9QkwfG7/v+zwDwEQC8LxoRZxnxfibwghNUJW6L02hKL+j0kPSiGnXNg4ODm57n/Z5UdRBxlXPeSLI7EPhuQ9FqkBN0chKKtVFS0phBJ4bxkST1jlZwbzfptNuyrCoAPElgn+arUqVSeXMpzKdkN/Nj+/v73yPiNwkvvmy3259Uq9W33feGZj4zQsULiGjYtv0rAIRynlCOk09GLhPAsLYODw/f9TzvuSSXvuhuXBPFfOz43t7eh7lc7g/G2IxAxtt8Pl9eWVl5FebWsEyN6n3JHpaKwSvP88oU/xMLnkhpNps/GYZxRySIekOlUvl8osE3Go1rMzMzfyLiTcGBF47jfDbR4Amw2MAQ8YfT09OvNzY2zicePDkQNbA6In7FOf8lXoWpAE9gaTgU9w3/A4g9WYKOpW/CAAAAAElFTkSuQmCC" />
+          </defs>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Search for your preffered city..." />
+      </div>
+      <button class="location-button" id="location-button">
+        <svg class="location-icon" width="35" height="35" viewBox="0 0 35 35" fill="none"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <rect width="35" height="35" fill="url(#pattern0_9_374)" />
+          <defs>
+            <pattern id="pattern0_9_374" patternContentUnits="objectBoundingBox" width="1" height="1">
+              <use xlink:href="#image0_9_374" transform="scale(0.0151515)" />
+            </pattern>
+            <image id="image0_9_374" width="66" height="66"
+              xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAABCCAYAAADjVADoAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE9klEQVR4nO2ca4hVVRTHf3PnRnStCLO3VghCWJGG9CAfQ1GovSDpYUFlBkF96EFlD8QeSESR0of62ocKsgzCz5aIQilmamn2mDIa0zC8zURONTmxaW1YbPY9s/c599xzxnv+sGDmzt5rrb3O2Xuv1x2oUBrUhLoaS4BB4HfgHroUE4BhYFTI/NygCzFNGcGS+azrMK0yxP+oDCGoDNHthjgO6AOuCDDEZcBVQC/H0OLvANYATVnsigBDrJDfDwHvAIvGq1FOBB4G9nkWG2MITT8IT+N/jAvcBhzwLOQf4GPgmgBDXA18Aox4xuyXN6S0OBv4yKP45+I+T0xxWJ4K3Afs8IxdC5xJyTATGHAU3QosAHracGsYHjcA25zxPwMzKAkWAkNKuT+BxwMOt/M8hjCfJaEOPAUcUXMGxeCFYoHsfavUd8AFgXNN6L1Hzd2d8Pa4uBD43jl/zAMpBDPkaVhlPgVOj+QxGVgldE7k3DOALUr+kGzRjuIs50z4rKBrbYLItnoMiG4dw1olvF+eTlGYBHyj9FnXKcGLlFBzaE2neEx3DtBb8xbYEIfGClyWko85KOcCLwBvCT0PzM6Qv3xS6XVAvNvc8JAStk2us1hcC3zpuTot7VLeZwx6xXexfB5JwSNYkL6ybiQejwH/JhjB0kjKhSxUPH6UoC/Xs2FHxJ1vsRg4GmAES0dT7HWj03bF43ZywNtKwNLIuacAv7V48rtkq/gCrF+BkyNl3avmv0cO2+KQUt5cWTF4wrPITcD5asxUYLNn3KORsiYqb/dwu7fHbKXYxhTzNzqL+0UiSxfGwAedsSYcj8V6Nd9kxdqGS+WqXJaSsbu4NxLGvumMNdd1LOYqfWdRIvzhLG55wtjlzlgTzxTiu0+NoHMDbw/XbzAJnFZY54z9IoB/TXSJ0b2RVJAdjrjeLH0tUWQSXvdcjdd5xs33XLGvjcF7CrA3hd7DvsJzTSrSoynJhNFJ6PPM+QtYKQfxHOAl4G/POPP3JKzOoHfTdelrGQ0x1lMz2+erFHx3MjZWtdMQyGuSZmvsDkyqPJiC9wMBfCc7ma5QMtHq3a2YNnI6LA1OinzrmhERZE87D8tO4JUIQ7xMCTFLOSjzMvA5zcl4t6LBFG68xry8HKq+jC6vxsoAQ7yYUcaGvFzsugQwaYMuNxI9PMbZ4FbFYjBJBV3NPHISa5SyJtTNgmcTDPF0Rt735xmGI+V9K2B7isSMxgktKuX75G9p0SP5jVwTM3VJf1khWctsd3kMcWdGnjcrXj/llapD8ohW0NaMzRs9kpyx/DZnfMvqTpout+Qt4uDo3geTecoCk5x5VfyLLAekwTOdTOfbRhBd+S5DgediJzwwOnYEH5ao5GectG+LKPnZ7piyFIF1UWdAdOsoZjptAVtSvBlTJJ+wOiC5E9IWYHKrpWgU6QcuCpxbczJLeyIbRfrV3BFpLSoU8503Y1i8w3qHWoeGymAEi0ukscvtprupjc1k13uayfYXuR1awbT6fdAi3bbUE6iFthcukUz2qCcT3vGDMQa3OD0Ueh9viGg4Xe+cP5YO5hVD5IHjJR+4t40tyKZM+JyE8eMOvdJO8K6qhscYwuQT3pfIN7cAqgijzAEuDzDElbI9jpnFJ6Frv7jiojKEoDKEoDKEoDKEoOEkU45061eibeG5KdSyINstqFX/NoHy4D9e/P+0/AvEkwAAAABJRU5ErkJggg==" />
+          </defs>
+        </svg>
+        Current Location
+      </button>
+    </div>
+
+    <div class="weather-info" id="weather-info">
+      <div class="weather-box" id="weather-box">
+        <div class="city-info" id="city-info">
+          <h2 id="cityName"></h2>
+          <div class="current-time" id="current-time">--:--</div>
+          <div class="current-date" id="current-date">--, -- --</div>
+        </div>
+      </div>
+      <div class="temperature-info">
+        <div class="temp-box">
+          <div class="current-temp" id="current-temp">--°C</div>
+          <div class="feels-like" id="feels-like">Feels like: --°C</div>
+          <div class="sun-times" id="sun-times">
+            <div class="sunrise" id="sunrise">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect width="48" height="48" fill="url(#pattern0_11_381)" />
+                <defs>
+                  <pattern id="pattern0_11_381" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_11_381" transform="scale(0.02)" />
+                  </pattern>
+                  <image id="image0_11_381" width="50" height="50"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/ElEQVR4nO2Zyy4EQRSGi5hERGJjxCMgHoGNy4aFxCOI64zL0tblDXgE8SBYiEjcFtiwIhIbK+zmk2NOJ63NjKmZbqqkvqSTTlfXOf8/daqqM2VMxgArchmfAdaAEmXWjY8ACzET6P2q8QnK5VSqYKTkTZkB8zHRUloRi96YAeZiYj/LKHKRKDe5lo0vJpJGKozYsssmiom2L0b0WTH2/pxxBeBRRRUqtH0zos8L2ufBuAIwDIxWaatoRNtGpa/xAWoY8QqCEccII+IaYURcI4yIa/ynETkCDv9aRyAQCAT8BDgATo3v8I929k+M76AY38E1I0AXkPstI0Ab0GHb76egncALcAHkszYC5IEz4BlotxZcI3AOOFdNVzZmbD/jKZuQHKiZtoaF15HgBuhNNcH3HNdZ5MjczK+ZqJLwIo0alhgay7p00zAjid+SSYFW/Zd9R+fHk05aud8FRuSdRJ8e4L2RxcSk9Ct2J56NA5f8jAgeS/TtTnWFagSgBdiMneLKCrcE9MleoFe/Hu5EJSTvbkhf4wrAtop7BWZqiVPTs1qWwpZxAWAyZmLI8pQrMjORrcr6Nsp7FTPbQH854RXuUt/4bACmY3PCuta1zKI5M2X+CmBfRRSaiCFH1cJeuursRNyqiIEmYgxqjOtmxURD6zPHYkS+MH3n5AOmbkN4s1cmDwAAAABJRU5ErkJggg==" />
+                </defs>
+              </svg>
+
+              <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v8'/%3E%3Cpath d='m4.93 10.93 1.41 1.41'/%3E%3Cpath d='M2 18h2'/%3E%3Cpath d='M20 18h2'/%3E%3Cpath d='m19.07 10.93-1.41 1.41'/%3E%3Cpath d='M22 22H2'/%3E%3Cpath d='m8 6 4-4 4 4'/%3E%3Cpath d='M16 18a4 4 0 0 0-8 0'/%3E%3C/svg%3E" alt="sunrise"> -->
+              <span>Sunrise: 06:53 AM</span>
+            </div>
+            <div class="sunset" id="sunset">
+              <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <rect y="0.333374" width="48" height="48" fill="url(#pattern0_11_377)" />
+                <defs>
+                  <pattern id="pattern0_11_377" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_11_377" transform="scale(0.02)" />
+                  </pattern>
+                  <image id="image0_11_377" width="50" height="50"
+                    xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB70lEQVR4nO2Zyy4EQRSGi5CISGwQj4B4BERcNiwkHkFmiLsdS5c34BHEg2AhInFNsGElkdhYYeeTE6eltJiZmummKqkv6WQyOafO/0+d6uqpNiZngH3gxIQOigkdohHPiDPiG3FGfCPOiG8ENSNALzDoagQYBgaMLwBXwDswV6kRidWcB+MLQEFFyTVfzojEWPFF4xNA0RK39JsRYMaKWzA+wnczy2kjQZhIAKZVqLCWGAFWLBOLJgSARUt0QlgmEqw2so18rZ2gAJYtM6smZPhss7DaKRKJRCLeEM9+fSOo/+yliEbyAmgFGv+qtYAGoNk1r9ygLcAzcA60520EaAdOgSegyVlwiYEbgTPVdOliBjgEDhxNXGotMdNQtfAKCtwAnZkW+FnjOo8auZv5MxO/FDzPoodlDB3LuXWzMCOFX9NFgXo9093W9fGoi1Y+7wBDEpPK6QDeqrmZmIx+xbbUd6PABeURwSOp3LZM71DVANQBG9aJidzhZoEu2Qv06taD66SFJHZdco0vAFsq7gWYKiVOTRe0LYVN4wPAuGWizyGv3zIzlq/KyjbKexVTqPKcWLjLfONzAZi01oRzr2ubJWtmwvwXwJ6KmKthDHnpI+xmq85NxK2K6Knx/aNwXauYZGpD5kiMyBNm6Bx/ACrUQ216v8tzAAAAAElFTkSuQmCC" />
+                </defs>
+              </svg>
+
+              <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 10v8'/%3E%3Cpath d='m4.93 15.93 1.41 1.41'/%3E%3Cpath d='M2 23h2'/%3E%3Cpath d='M20 23h2'/%3E%3Cpath d='m19.07 15.93-1.41 1.41'/%3E%3Cpath d='M22 27H2'/%3E%3Cpath d='m8 14 4 4 4-4'/%3E%3Cpath d='M16 23a4 4 0 0 0-8 0'/%3E%3C/svg%3E" alt="sunset"> -->
+              <span>Sunset: 06:03 PM</span>
+            </div>
+          </div>
+          <div class="weather-details">
+            <div class="weather-icon" id="weather-icon"></div>
+            <div class="weather-metrics" id="weather-metrics">
+          </div>
+          
+          </div>
+        </div>
+      </div>
+
+      <div class="forecast-container">
+        <div class="forecast-card-1" id="forecast-card-1">
+          <h3 class="forecast-title">5 Days Forecast</h3>
+          <div class="five-day-forecast" id="five-day-forecast"></div>
+        </div>
+      </div>
+
+      <div class="hourly-forecast-container">
+        <div class="forecast-card-2" id="forecast-card-2">
+          <h3 class="hourly-forecast-title">Hourly Forecast</h3>
+          <div class="hourly-forecast" id="hourly-forecast">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
