@@ -204,7 +204,7 @@ searchInput.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("load", async () => {
+locationButton.addEventListener("click", async () => {
   const city = await getCityFromLocation();
   if (city) updateWeather(city);
 });
@@ -229,3 +229,8 @@ async function getCityFromLocation() {
     }
   });
 }
+
+window.addEventListener("load", async () => {
+  const city = await getCityFromLocation();
+  if (city) updateWeather(city);
+});
